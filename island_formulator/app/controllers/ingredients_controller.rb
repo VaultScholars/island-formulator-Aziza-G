@@ -1,6 +1,7 @@
 class IngredientsController < ApplicationController
   before_action :set_ingredient, only: %i[ show edit update destroy ]
 
+
   # GET /ingredients or /ingredients.json
   def index
     @ingredients = Ingredient.all
@@ -21,7 +22,7 @@ class IngredientsController < ApplicationController
 
   # POST /ingredients or /ingredients.json
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient = current_user.ingredients.build(ingredient_params) # if damage happens change back to Ingredient.new
 
     respond_to do |format|
       if @ingredient.save
@@ -65,6 +66,6 @@ class IngredientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ingredient_params
-      params.expect(ingredient: [ :name, :category, :description, :notes ])
+      params.expect(ingredient: [ :name, :category, :description, :notes, :photo, tag_ids: [] ])
     end
 end
