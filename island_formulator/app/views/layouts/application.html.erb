@@ -18,9 +18,14 @@
         Ingredient Knowledge Base
       <% end %>
       
-      <% if authenticated? %>
-        <%= link_to "My Ingredients", ingredients_path, class: "text-gray-600 hover:text-gray-900 transition-colors" %>
-      <% end %>
+      <% if authenticated? %> <%# added week 3, this is for the recipes and ingredients button%>
+    <%= link_to "My Recipes",
+    recipes_path,
+    class: "text-gray-600 hover:text-gray-900 transition-colors" %>
+    <%= link_to "My Ingredients",
+    ingredients_path,
+    class: "text-gray-600 hover:text-gray-900 transition-colors" %>
+  <% end %>
     </div>
     
     <%# Right side - Auth links %>
