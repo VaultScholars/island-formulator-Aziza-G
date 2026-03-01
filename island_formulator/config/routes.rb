@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "dashboards#show"
   # Authentication routes(from week 2)
   resource :session
   resources :users, only: [ :new, :create ]
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  root "ingredients#index"
+  # root "ingredients#index"
 
   # root "posts#index"
 end

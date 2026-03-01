@@ -18,15 +18,13 @@
         Ingredient Knowledge Base
       <% end %>
       
-      <% if authenticated? %> <%# added week 3, this is for the recipes and ingredients button%>
-    <%= link_to "My Recipes",
-    recipes_path,
-    class: "text-gray-600 hover:text-gray-900 transition-colors" %>
-    <%= link_to "My Ingredients",
-    ingredients_path,
-    class: "text-gray-600 hover:text-gray-900 transition-colors" %>
-  <% end %>
-    </div>
+      <% if authenticated? %> <%# WEEK 4 UPDATE WITH BATCH AND INVENTORY%>
+  <%= link_to "Dashboard", root_path, class: "text-gray-600 hover:text-gray-900 transition-colors" %>
+  <%= link_to "My Recipes", recipes_path, class: "text-gray-600 hover:text-gray-900 transition-colors" %>
+  <%= link_to "Inventory", inventory_items_path, class: "text-gray-600 hover:text-gray-900 transition-colors" %>
+  <%= link_to "Batches", batches_path, class: "text-gray-600 hover:text-gray-900 transition-colors" %>
+  <%= link_to "My Ingredients", ingredients_path, class: "text-gray-600 hover:text-gray-900 transition-colors" %>
+<% end %>
     
     <%# Right side - Auth links %>
     <div class="flex items-center gap-4">
