@@ -44,7 +44,7 @@
 
     <div class="flex gap-2">
       <%= link_to "Edit this item", edit_inventory_item_path(@inventory_item), class: "rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-      <%= button_to "Remove from inventory", @inventory_item, method: :delete, class: "rounded-lg py-3 px-5 bg-red-50 text-red-600 font-medium", data: { confirm: "Are you sure?" } %>
+      <%= button_to "Remove from inventory", @inventory_item.destroy!, method: :delete, class: "rounded-lg py-3 px-5 bg-red-50 text-red-600 font-medium", data: { confirm: "Are you sure?" } %>
       <%= link_to "Back to inventory", inventory_items_path, class: "ml-auto rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
     </div>
   </div>

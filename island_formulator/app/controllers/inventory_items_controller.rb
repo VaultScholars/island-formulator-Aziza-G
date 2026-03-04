@@ -1,25 +1,25 @@
 class InventoryItemsController < ApplicationController
-  before_action :require_authentication  # Add this line
+  before_action :require_authentication
   before_action :set_inventory_item, only: %i[ show edit update destroy ]
 
   def index
     # We use .includes(:ingredient) to avoid "N+1" queries.
     # This is a performance optimization that loads all ingredients in one go!
-    @inventory_items = current_user.inventory_items.includes(:ingredient).order(purchase_date: :desc)
+    @inventory_items = Current.user.inventory_items.includes(:ingredient).order(purchase_date: :desc)
   end
 
   def show
   end
 
   def new
-    @inventory_item = current_user.inventory_items.build
+    @inventory_item = Current.user.inventory_items.build
   end
 
   def edit
   end
 
   def create
-    @inventory_item = current_user.inventory_items.build(inventory_item_params)
+    @inventory_item = Current.user.inventory_items.build(inventory_item_params)
 
     if @inventory_item.save
       redirect_to inventory_items_path, notice: "Inventory item was successfully created."
