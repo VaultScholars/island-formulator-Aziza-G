@@ -1,7 +1,7 @@
 <% content_for :title, "New batch" %>
 
 <div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Log a New Batch</h1>
+  <h1 class="font-bold text-4xl text-white underline">Log a New Batch</h1>
 
   <%= form_with(model: @batch, class: "contents") do |form| %>
     <% if @batch.errors.any? %>
@@ -16,25 +16,25 @@
     <% end %>
 
     <div class="my-5">
-      <%= form.label :recipe_id, "Which Recipe?" %>
+      <%= form.label :recipe_id, "Which Recipe?", class: "text-white" %>
       <%= form.collection_select :recipe_id, current_user.recipes, :id, :title, 
           { prompt: "Select a recipe" }, 
-          { class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
+          { class: "block bg-white shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" } %>
     </div>
 
     <div class="my-5">
-      <%= form.label :made_on, "Date Made" %>
-      <%= form.date_field :made_on, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+      <%= form.label :made_on, "Date Made", class: "text-white" %>
+      <%= form.date_field :made_on, class: "block bg-white shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
 
     <div class="my-5">
-      <%= form.label :notes, "Production Notes (How did it go? Any adjustments?)" %>
-      <%= form.text_area :notes, rows: 6, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "e.g. Added a bit more lavender oil for scent. Consistency is perfect." %>
+      <%= form.label :notes, "Production Notes (How did it go? Any adjustments?)", class: "text-white" %>
+      <%= form.text_area :notes, rows: 6, class: "block bg-white shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", placeholder: "e.g. Added a bit more lavender oil for scent. Consistency is perfect." %>
     </div>
 
     <div class="inline">
-      <%= form.submit "Log Batch", class: "rounded-lg py-3 px-5 bg-green-600 text-white inline-block font-medium cursor-pointer" %>
-      <%= link_to "Cancel", batches_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= form.submit "Log Batch", class: "rounded-lg py-3 px-5 bg-orange-200 hover:bg-orange-300 inline-block font-medium cursor-pointer" %>
+      <%= link_to "Cancel", batches_path, class: "ml-2 rounded-lg py-3 px-5 bg-red-700 hover:bg-red-800 inline-block font-medium" %>
     </div>
   <% end %>
 </div>

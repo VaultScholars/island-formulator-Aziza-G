@@ -26,6 +26,16 @@ class BatchesController < ApplicationController
     end
   end
 
+  def destroy
+    @batch = current_user.batches.find(params[:id])
+    @batch.destroy
+
+     respond_to do |format|
+      format.html { redirect_to batches_path, notice: "Batch was successfully destroyed.", status: :see_other }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def batch_params

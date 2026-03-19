@@ -1,22 +1,22 @@
 <% content_for :title, "Showing ingredient" %>
 
-<div class="max-w-2xl mx-auto bg-white shadow rounded-lg overflow-hidden">
+<div class="max-w-2xl mx-auto bg-orange-100 shadow rounded-lg overflow-hidden">
   <% if @ingredient.photo.attached? %>
     <%= image_tag @ingredient.photo, class: "w-full h-64 object-cover" %>
   <% end %>
   
   <div class="p-6">
-    <h1 class="text-3xl font-bold mb-2"><%= @ingredient.name %></h1>
-    <p class="text-gray-600 mb-4"><%= @ingredient.category %></p>
+    <h1 class="text-3xl font-bold mb-2 text-rose-800"><%= @ingredient.name %></h1>
+    <p class="text-gray-600 mb-4 text-pink-800"><%= @ingredient.category %></p>
     
     <div class="mb-6">
-      <h2 class="font-bold text-gray-700 uppercase text-xs tracking-wider mb-2">Description</h2>
-      <p class="text-gray-800"><%= @ingredient.description %></p>
+      <h2 class="font-bold text-yellow-900 uppercase text-xs tracking-wider mb-2">Description</h2>
+      <p class="text-yellow-700"><%= @ingredient.description %></p>
     </div>
 
     <div class="flex space-x-2">
-      <%= link_to 'Edit', edit_ingredient_path(@ingredient), class: "bg-blue-500 text-white px-4 py-2 rounded" %>
-      <%= link_to 'Back', ingredients_path, class: "text-gray-500 py-2" %>
+      <%= link_to 'Edit', edit_ingredient_path(@ingredient), class: "bg-rose-900 border border:white border-2 hover:bg-white hover:border-rose-900 hover:text-rose-900 text-white px-4 py-2 rounded" %>
+      <%= link_to 'Back', ingredients_path, class: "py-2" %>
     </div>
   </div>
 </div>

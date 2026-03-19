@@ -12,7 +12,7 @@ class InventoryItemsController < ApplicationController
   end
 
   def new
-    @inventory_item = Current.user.inventory_items.build
+    @inventory_item = InventoryItem.new # changed Current.user.inventory_items.build to InventoryItem.new
   end
 
   def edit
@@ -44,10 +44,11 @@ class InventoryItemsController < ApplicationController
   private
 
   def set_inventory_item
-    @inventory_item = current_user.inventory_items.find(params[:id])
+    @inventory_item = Current.user.inventory_items.find(params[:id]) # original - find changed to find_by
   end
 
   def inventory_item_params
     params.require(:inventory_item).permit(:ingredient_id, :brand, :size, :location, :purchase_date, :notes, :photo)
   end
+  # original = :ingredient_id change to :na
 end
