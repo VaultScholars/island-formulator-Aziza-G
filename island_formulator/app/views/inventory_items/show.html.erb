@@ -1,11 +1,11 @@
 <% content_for :title, "Showing inventory item" %>
 
 <div class="mx-auto md:w-2/3 w-full flex flex-col items-center">
-  <div class="bg-orange-100 shadow rounded-lg p-8 w-full">
+  <div class="bg-orange-50 shadow rounded-lg p-8 w-full">
     <div class="flex justify-between items-start mb-6">
       <div>
         <h1 class="font-bold text-3xl text-rose-800"><%= @inventory_item.ingredient.name %></h1>
-        <p class="text-gray-500"><%= @inventory_item.brand %></p>
+        <p class="text-teal-500"><%= @inventory_item.brand %></p>
       </div>
       <span class="bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded uppercase">
         <%= @inventory_item.ingredient.category %>
@@ -14,29 +14,29 @@
 
     <% if @inventory_item.photo.attached? %>
       <div class="mb-6">
-        <%= image_tag @inventory_item.photo, class: "w-full h-64 object-cover rounded-lg shadow-sm" %>
+        <%= image_tag @inventory_item.photo, class: "w-full h-64 object-cover border border-orange-400 border-frame rounded-lg shadow-sm" %>
       </div>
     <% end %>
 
     <div class="grid grid-cols-2 gap-6 mb-8">
       <div>
-        <p class="text-sm font-bold text-gray-500 uppercase">Size</p>
+        <p class="text-sm font-bold text-orange-900 uppercase">Size</p>
         <p class="text-lg"><%= @inventory_item.size.presence || "Not specified" %></p>
       </div>
       <div>
-        <p class="text-sm font-bold text-gray-500 uppercase">Location</p>
+        <p class="text-sm font-bold text-orange-900 uppercase">Location</p>
         <p class="text-lg"><%= @inventory_item.location.presence || "Not specified" %></p>
       </div>
       <div>
-        <p class="text-sm font-bold text-gray-500 uppercase">Purchase Date</p>
+        <p class="text-sm font-bold text-orange-900 uppercase">Purchase Date</p>
         <p class="text-lg"><%= @inventory_item.purchase_date.strftime("%B %d, %Y") %></p>
       </div>
     </div>
 
     <% if @inventory_item.notes.present? %>
       <div class="mb-8">
-        <p class="text-sm font-bold text-gray-500 uppercase mb-2">Notes</p>
-        <div class="bg-gray-50 p-4 rounded-lg text-gray-700">
+        <p class="text-sm font-bold text-orange-900 uppercase mb-2">Notes</p>
+        <div class="bg-emerald-50 p-4 rounded-lg text-gray-800">
           <%= simple_format @inventory_item.notes %>
         </div>
       </div>
@@ -44,8 +44,8 @@
 
     <div class="flex gap-2">
       <%= link_to "Edit this item", edit_inventory_item_path(@inventory_item), class: "rounded-lg py-3 px-5 bg-orange-200 hover:bg-orange-300 font-medium" %>
-      <%= button_to "Remove from inventory", inventory_item_path(@inventory_item), method: :delete, class: "rounded-lg py-3 px-5 bg-red-200 text-red-800 font-medium", data: { confirm: "Are you sure?" } %>
-      <%= link_to "Back to inventory", inventory_items_path, class: "ml-auto rounded-lg py-3 px-5 bg-blue-600 text-white font-medium" %>
+      <%= button_to "Remove from inventory", inventory_item_path(@inventory_item), method: :delete, class: "rounded-lg py-3 px-5 bg-red-200 text-red-800 hover:bg-red-300 font-medium", data: { confirm: "Are you sure?" } %>
+      <%= link_to "Back to inventory", inventory_items_path, class: "ml-auto rounded-lg py-3 px-5 bg-orange-200 hover:bg-orange-300 font-medium" %>
     </div>
   </div>
 </div>
