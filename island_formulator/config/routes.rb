@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   # Your other routes
   resources :ingredients
-  resources :recipes
+  resources :recipes do # modified for implemented feature: favourite
+      resource :favourite, only:
+      [ :create, :destroy ]
+  end
   resources :passwords, param: :token
 
   # WEEK 4

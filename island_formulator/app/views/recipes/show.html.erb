@@ -49,4 +49,12 @@
       </div>
     </div>
   </div>
+  
+  <div>
+  <% if Current.user.favourites.exists?(recipe: @recipe)%>
+  <%= button_to "Unfavourite", recipe_favourite_path(@recipe), method: :delete, class: "rounded-lg ml-4 py-3 px-5 text-yellow-900 bg-gray-100 hover:bg-gray-300 inline-block font-medium"%>
+  <% else %>
+  <%= button_to "Favourite", recipe_favourite_path(@recipe), method: :post, class: "rounded-lg ml-4 py-3 px-5 bg-yellow-600 hover:bg-yellow-500 inline-block font-medium" %>
+  <% end %>
+  </div>
 </div>

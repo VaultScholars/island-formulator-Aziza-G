@@ -9,5 +9,7 @@ class DashboardsController < ApplicationController
       inventory: current_user.inventory_items.count,
       batches: current_user.batches.count
     }
+
+    @favourite_recipes = Current.user.favourite_recipes # Shows Favourites in dashboard
   end
 end

@@ -7,6 +7,8 @@
 
   has_many :inventory_items, dependent: :destroy # week4 p1
   has_many :batches, dependent: :destroy # week 4 p2
+  has_many :favourites, dependent: :destroy # implemented feature
+  has_many :favourite_recipes, through: :favourites, source: :recipe # implemented feature
 
   # Add validations for better error messages
   validates :email_address, presence: true, uniqueness: { case_sensitive: false }

@@ -56,6 +56,22 @@
       </div>
     </div>
 
+     <!--Favourite Recipes-->
+     <div class ="flex-1">
+      <h2 class=""> ⭐ My Favourite Recipes </h2>
+      <% if @favourite_recipes.any? %>
+      <ul>
+        <% @favourite_recipes.each do |recipe| %> 
+        <li>
+          <%= link_to recipe.title, recipe_path(recipe)%>
+          <%= button_to "Remove", recipe_favourite_path(recipe), method: :delete %>
+        </li>
+      <% end %>
+      </ul>
+      <% else %>
+      <p> You haven't favourited any recipes yet.</p>
+      <% end %>
+
     <!-- Recent Batches --> 
     <div class="flex-1">
       <div class="flex justify-between items-center mb-4">
