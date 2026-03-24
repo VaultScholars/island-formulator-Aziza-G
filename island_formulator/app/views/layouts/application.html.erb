@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><%= content_for(:title) || "Island Formulator" %></title>
-    <main class="container mx-auto mt-28 px-5 flex flex-col bg-emerald-800"> 
+    <main class="container mx-auto min-h-screen mt-28 px-5 flex flex-col"> 
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Island Formulator">
@@ -24,7 +24,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-emerald-800">
+  <body class="min-h-screen bg-gradient-to-b from-emerald-700 to-emerald-800">
     <nav class="mb-8 px-6 py-4 border-b rounded-lg shadow-sm">
   <div class="max-w-7xl mx-auto flex items-center justify-between rounded-lg px-5 bg-emerald-400">
     <%# Left side - App name and main nav %>
