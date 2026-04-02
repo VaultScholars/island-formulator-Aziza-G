@@ -14,21 +14,21 @@
   
   <%# Add this button to quickly log a batch from the recipe page %>
   <%= link_to "Log a New Batch", new_batch_path(recipe_id: @recipe.id), 
-      class: "rounded-lg ml-4 py-3 px-5 bg-green-300 text-white hover:text-green-600 hover:bg-gray-100 inline-block font-medium" %>
+      class: "rounded-lg ml-4 py-3 px-5 bg-green-800 text-white hover:text-green-600 hover:bg-gray-100 inline-block font-medium" %>
 </div>
   
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     <div class="md:col-span-1">
       <% if @recipe.photo.attached? %>
-        <%= image_tag @recipe.photo, class: "w-64 h-auto object-cover rounded-xl ml-9 shadow-lg border border-2 border-white" %>
+        <%= image_tag @recipe.photo, class: "w-[500px] h-[250px] object-cover rounded-xl ml-9 shadow-lg border border-2 border-white" %>
       <% else %>
-        <div class="w-full h-64 bg-gray-200 rounded-xl ml-9 px-2 py-2 flex items-center justify-center border border-frame border-3 border-gray-100 text-gray-400 italic">
+        <div class="w-full h-auto bg-gray-200 rounded-xl ml-9 px-2 py-2 flex items-center justify-center border border-frame border-3 border-gray-100 text-gray-400 italic">
           No photo uploaded
         </div>
       <% end %>
       
       <div class="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-100 pl-7 pr-5 py-7 -ml-20">
-        <h2 class="text-xl font-bold mb-4 text-pink-800 border-b pb-2 ">Ingredients</h2>
+        <h2 class="text-xl font-bold mb-4 text-pink-800 border-b pb-2">Ingredients</h2>
         <ul class="space-y-3">
           <% @recipe.recipe_ingredients.each do |ri| %>
             <li class="flex justify-between items-center">
@@ -49,7 +49,7 @@
       </div>
     </div>
   </div>
-  
+
   <div>
   <% if Current.user.favourites.exists?(recipe: @recipe)%>
   <%= button_to "Unfavourite", recipe_favourite_path(@recipe), method: :delete, class: "rounded-lg ml-4 py-3 px-5 text-yellow-600 bg-gray-100 hover:bg-gray-300 inline-block font-medium"%>

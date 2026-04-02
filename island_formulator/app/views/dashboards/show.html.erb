@@ -1,6 +1,6 @@
 <div class="w-full flex flex-col min-h-screen">
   <div class="flex justify-between items-center mb-8">
-    <h1 class="font-bold text-4xl text-white">Welcome back, <%= current_user.email_address.split('@').first.capitalize %>!</h1>
+    <h1 class="font-bold text-4xl text-white">Welcome back, <div class="hover:text-rose-500 transition duration-300 ease-in-out"><%= current_user.email_address.split('@').first.capitalize %>!</div></h1>
     <div class=" font-mono tracking-wide text-sm text-white">
       <%= Time.now.strftime("%A, %B %d, %Y") %>
     </div>
