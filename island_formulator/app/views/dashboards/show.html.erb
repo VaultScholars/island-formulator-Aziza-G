@@ -66,9 +66,9 @@
 
   <div class="bg-emerald-800 shadow rounded-lg divide-y">
     <% @favourite_recipes.each do |recipe| %>
-      <div class="p-4 flex justify-between items-center bg-yellow-600 mb-3 rounded-lg">
+      <div class="p-4 flex justify-between items-center bg-yellow-500 mb-3 rounded-lg">
         <div>
-          <%= link_to recipe.title, recipe_path(recipe), class: "font-medium text-pink-50 hover:underline" %>
+          <%= link_to recipe.title, recipe_path(recipe), class: "font-medium text-rose-50 hover:underline" %>
           <p class="text-xs text-orange-50"><%= recipe.product_type %></p>
         </div>
       </div>

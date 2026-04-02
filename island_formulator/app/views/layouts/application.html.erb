@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full m-0 p-0">
   <head>
     <title><%= content_for(:title) || "Island Formulator" %></title>
     <main class="container mx-auto min-h-screen mt-28 px-5 flex flex-col"> 
@@ -24,21 +24,31 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-h-screen bg-gradient-to-b from-emerald-700 to-emerald-800">
-    <nav class="mb-8 px-6 py-4 border-b rounded-lg shadow-sm">
-  <div class="max-w-7xl mx-auto flex items-center justify-between rounded-lg px-5 bg-emerald-400">
+  <body class="min-h-screen relative bg-transparent m-0 p-0">
+
+    <div class="fixed inset-0 -z-10">
+
+       
+          <!--emerald wrapper-->
+          <div class="w-full h-full bg-gradient-to-br from-emerald-200 to-emerald-700"></div>
+
+    </div>
+
+    <!--Navigation bar-->
+    <nav class="w-full px-10 py-4 border-b border-white/20 rounded-lg shadow-md">
+  <div class="max-w-11xl mx-auto flex items-center justify-between rounded-lg px-7 py-3 bg-white/80">
     <%# Left side - App name and main nav %>
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-10">
       <%= link_to root_path, class: "text-2xl font-serif font-bold text-gray-900 hover:text-yellow-300 transition-colors" do %>
         Ingredient Knowledge Base
       <% end %>
       
       <% if authenticated? %> <%# WEEK 4 UPDATE WITH TOP OF THE PAGE%>
-  <%= link_to "Dashboard", root_path, class: "font-bold text-emerald-100 hover:text-rose-900 transition-colors" %>
-  <%= link_to "My Recipes", recipes_path, class: "font-bold text-emerald-100 hover:text-rose-900 transition-colors" %>
-  <%= link_to "Inventory", inventory_items_path, class: "font-bold text-emerald-100 hover:text-rose-900 transition-colors" %>
-  <%= link_to "Batches", batches_path, class: "font-bold text-emerald-100 hover:text-rose-900 transition-colors" %>
-  <%= link_to "My Ingredients", ingredients_path, class: "font-bold text-emerald-100 hover:text-rose-900 transition-colors" %>
+  <%= link_to "Dashboard", root_path, class: "font-bold text-emerald-600 hover:text-rose-900 transition-colors" %>
+  <%= link_to "My Recipes", recipes_path, class: "font-bold text-emerald-600 hover:text-rose-900 transition-colors" %>
+  <%= link_to "Inventory", inventory_items_path, class: "font-bold text-emerald-600 hover:text-rose-900 transition-colors" %>
+  <%= link_to "Batches", batches_path, class: "font-bold text-emerald-600 hover:text-rose-900 transition-colors" %>
+  <%= link_to "My Ingredients", ingredients_path, class: "font-bold text-emerald-600 hover:text-rose-900 transition-colors" %>
 <% end %>
     
     <%# Right side - Auth links SIGN IN PAGE DASHBOARD%>
